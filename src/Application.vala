@@ -1,4 +1,5 @@
 /*
+* Copyright © 2022 Dušan Simić <dusan.simic1810@gmail.com>
 * Copyright © 2019 Cassidy James Blaede (https://cassidyjames.com)
 *
 * This program is free software; you can redistribute it and/or
@@ -60,12 +61,14 @@ public class Application : Gtk.Application {
         if (link != null) {
             string flag = "";
 
-            // Implements System Settings Schema Specification v1.1
+            // Implements System Settings Schema Specification v1.2
             // https://github.com/elementary/switchboard/wiki/System-Settings-Schema-Specification
             switch (link) {
                 case "":
                     break;
                 case "about":
+                case "about/hardware":
+                case "about/os":
                     flag = "info-overview";
                     break;
                 case "accounts":
@@ -85,6 +88,7 @@ public class Application : Gtk.Application {
                     flag = "background";
                     break;
                 case "display":
+                case "display/night-light":
                     flag = "display";
                     break;
                 case "display/color":
